@@ -14,8 +14,8 @@ class Html5Renderer extends BaseRenderer {
 	/**
 	 *
 	 */
-	public function init() {
-		parent::init();
+	public function init($maxFiles) {
+		parent::init($maxFiles);
 		
 		$this->elements["globalProgressValue"] = null;
 		$this->elements["fileProgressValue"] = null;

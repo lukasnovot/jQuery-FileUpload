@@ -76,24 +76,28 @@ abstract class BaseRenderer implements IUploadRenderer {
 		ITranslator $translator = null
 	) {
 		$this->fileUploadControl = $fileUploadControl;
-		
-		$this->init();
+
+		$this->init($fileUploadControl->getMaxFiles());
 		$this->translator = $translator;
 	}
-	
+
 	/**
 	 * Inicializace elementů.
+	 * @param $maxFiles
 	 */
-	public function init() {
+	public function init($maxFiles) {
 		$htmlId = $this->fileUploadControl->getHtmlId();
 		
 		foreach($this->elements as $type => $value) {
 			if($type == "input") {
-				$element = Html::el("input type='file' multiple='multiple'")->addAttributes([
+				$element = Html::el("input type='file'")->addAttributes([
 					"id" => $htmlId,
 					"name" => $this->fileUploadControl->getHtmlName(),
 					"data-upload-component" => $htmlId
 				]);
+				if ($maxFiles > 1) {
+					$element->addAttributes(['multiple' => 'multiple']);
+				}
 			} else if($type == "delete") {
 				$element = Html::el("button type='button'")->addAttributes([
 					"data-upload-component" => sprintf($this->idTemplate, $htmlId, $type)
