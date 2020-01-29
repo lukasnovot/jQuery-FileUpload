@@ -181,7 +181,7 @@ class UploadController extends \Nette\Application\UI\Control {
 	public function handleRemove() {
 		$id = $this->request->getQuery("id");
 		$token = $this->request->getQuery("token");
-		$default = $this->request->getQuery("default", 0);
+		$default = $this->request->getQuery("default");
 		
 		if($default == 0) {
 			$cache = $this->uploadControl->getCache();
