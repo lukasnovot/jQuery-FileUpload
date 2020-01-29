@@ -60,4 +60,9 @@ final class FileUploadExtension extends \Nette\DI\CompilerExtension {
 			$this->getContainerBuilder()->getByType('\Nette\DI\Container'), $this->configuration
 		]);
 	}
+
+	public function getConfig()
+	{
+		return $this->config + $this->defaults;
+	}
 }

@@ -41,10 +41,9 @@ class UploadController extends \Nette\Application\UI\Control {
 	 * @param \Zet\FileUpload\FileUploadControl $uploadControl
 	 */
 	public function __construct(\Zet\FileUpload\FileUploadControl $uploadControl) {
-		parent::__construct();
 		$this->uploadControl = $uploadControl;
 	}
-	
+
 	/**
 	 * @param \Nette\Http\Request $request
 	 */
@@ -98,7 +97,7 @@ class UploadController extends \Nette\Application\UI\Control {
 		
 		return $this->renderer;
 	}
-	
+
 	/**
 	 * Vytvoření šablony s JavaScriptem pro FileUpload.
 	 *
