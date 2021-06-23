@@ -46,7 +46,7 @@ abstract class BaseFilter implements IMimeTypeFilter {
 	 * @return string
 	 */
 	public function getAllowedTypes() {
-		return implode(array_unique($this->getMimeTypes()), ", ");
+		return implode( ", ", array_unique($this->getMimeTypes()));
 	}
 	
 	/**
